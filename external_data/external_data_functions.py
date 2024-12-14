@@ -37,6 +37,7 @@ def _merge_weather_data(X):
     del X["orig_index"]
     return X
 
+#https://www.data.gouv.fr/fr/datasets/vacances-scolaires-par-zones/
 def _merge_school_holiday_data(X):
     df_ext = pd.read_csv(Path("external_data") / "vacances-scolaires.csv", parse_dates=["date"])
     df_ext['date'] = pd.to_datetime(df_ext['date']).astype('datetime64[us]')
